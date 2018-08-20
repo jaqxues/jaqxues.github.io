@@ -1,0 +1,8 @@
+hr.header-break {
+    border: 1px solid #3b3b3b;
+    max-width: 800px;
+}
+
+h1.title {
+    overflow: hidden;
+}
