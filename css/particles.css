@@ -1,0 +1,119 @@
+/*Avoid scrollbars*/
+html, body, #particles-js {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#particles-js {
+    z-index: 200;
+}
+
+.overlay {
+    z-index: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+
+    /*Animation*/
+    animation-name: visibility;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    -webkit-animation-name: visibility;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in;
+
+    /*Make text not selectable*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.overlay-left {
+    left: 10%;
+    top: 30%;
+}
+
+.overlay-right {
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+    right: 10%;
+    bottom: 30%;
+}
+
+.overlay-footer {
+    animation-delay: 4s;
+    -webkit-animation-delay: 4s;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 5%;
+}
+
+.overlay-text {
+    font-size: 5vw;
+}
+
+.overlay-touchable {
+    z-index: 201;
+    pointer-events: auto;
+}
+
+@keyframes visibility {
+    0% {
+        width: fit-content;
+        height: fit-content;
+        opacity: 0;
+    }
+    25% {
+        display: block;
+        opacity: 0.25;
+    }
+    50% {
+        display: block;
+        opacity: 0.5;
+    }
+    75% {
+        display: block;
+        opacity: 0.75;
+    }
+    100% {
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes visibility {
+    0% {
+        width: fit-content;
+        height: fit-content;
+        opacity: 0;
+    }
+    25% {
+        display: block;
+        opacity: 0.25;
+    }
+    50% {
+        display: block;
+        opacity: 0.5;
+    }
+    75% {
+        display: block;
+        opacity: 0.75;
+    }
+    100% {
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        opacity: 1;
+    }
+}
