@@ -1,3 +1,12 @@
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: none;
+}
 hr.header-break {
     border: 1px solid #3b3b3b;
     max-width: 800px;
@@ -10,4 +19,19 @@ hr.smaller-break {
 
 h1.title {
     overflow: hidden;
+}
+
+.bg-main {
+    background:
+            url("https://images.pexels.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg")
+            no-repeat fixed center /cover;
+    height: 100vh;
+}
+
+.navbar {
+    position: absolute;
+}
+
+.main-header {
+    padding-top: 40vh !important;
 }
