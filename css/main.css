@@ -28,12 +28,12 @@ h1.title {
     height: 100vh;
 }
 
-.main-header {
+.main-header-container {
     padding-top: 20vh !important;
 }
 
 @media (min-height: 500px) {
-    .main-header {
+    .main-header-container {
         padding-top: 30vh !important;
     }
 }
@@ -53,4 +53,12 @@ h1.title {
 .nav-bg {
     background: rgba(0, 0, 0, 0.8);
     padding: 10px;
+}
+
+.main-header {
+    font-size: 10vw;
+}
+
+.main-sub-header {
+    font-size: 3vw;
 }
