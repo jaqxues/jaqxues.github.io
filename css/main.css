@@ -29,12 +29,15 @@ h1.title {
 }
 
 .main-header-container {
-    padding-top: 20vh !important;
+    padding-top: 40vh !important;
 }
 
-@media (min-height: 500px) {
-    .main-header-container {
-        padding-top: 30vh !important;
+@media (max-width: 1000px) {
+    .main-header {
+        font-size: 10vw;
+    }
+    .main-sub-header {
+        color: #acacac;
     }
 }
 
@@ -55,11 +58,6 @@ h1.title {
     padding: 10px;
 }
 
-.main-header {
-    font-size: 10vw;
-}
-
 .main-sub-header {
     color: #acacac;
-    font-size: 3vw;
 }
