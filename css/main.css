@@ -7,8 +7,9 @@ html {
     vertical-align: baseline;
     background: none;
 }
+
 hr.header-break {
-    border: 1px solid #3b3b3b;
+    border: 1px solid #acacac;
     max-width: 800px;
 }
 
@@ -22,16 +23,34 @@ h1.title {
 }
 
 .bg-main {
-    background:
-            url("https://images.pexels.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg")
-            no-repeat fixed center /cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
+    url("https://images.pexels.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg") no-repeat fixed center /cover;
     height: 100vh;
 }
 
-.navbar {
-    position: absolute;
+.main-header {
+    padding-top: 20vh !important;
 }
 
-.main-header {
-    padding-top: 40vh !important;
+@media (min-height: 500px) {
+    .main-header {
+        padding-top: 30vh !important;
+    }
+}
+
+.row-item {
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box !important;
+}
+
+.navbar {
+    padding: 0;
+    z-index: 90000;
+    box-sizing: border-box;
+    width: 100vw;
+}
+
+.nav-bg {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
 }
