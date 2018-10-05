@@ -24,26 +24,13 @@ h1.title {
 
 .bg-main {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
-    url("https://images.pexels.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg") no-repeat fixed center /cover;
+    url("https://images.pexels.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg")
+    no-repeat fixed center /cover;
     height: 100vh;
 }
 
 .main-header-container {
     padding-top: 40vh !important;
-}
-
-@media (max-width: 1000px) {
-    .main-header {
-        font-size: 10vw;
-    }
-    .main-sub-header {
-        font-size: 3vw;
-    }
-}
-
-.row-item {
-    background: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box !important;
 }
 
 .navbar {
@@ -60,4 +47,27 @@ h1.title {
 
 .main-sub-header {
     color: #acacac;
+    font-size: 30px;
+}
+
+.main-header {
+    font-size: 75px;
+}
+
+@media (max-width: 1000px) {
+    .main-header {
+        font-size: 7.5vw;
+    }
+    .main-sub-header {
+        font-size: 3vw;
+    }
+}
+
+.row-item > .card {
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box !important;
+}
+
+.row-item {
+    padding-top: 1rem;
 }
