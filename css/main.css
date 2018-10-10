@@ -22,13 +22,10 @@ h1.title {
     overflow: hidden;
 }
 
-/*Disabled inspection for IOS 9*/
-/*noinspection CssOptimizeSimilarProperties*/
 .bg-main {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
-    url("https://images.pexe$ls.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg")
-    no-repeat center /cover;
-    background-attachment: fixed;
+    url("https://images.pexels.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg")
+    no-repeat fixed center /cover;
     height: 100vh;
 }
 
