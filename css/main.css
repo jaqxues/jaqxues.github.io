@@ -24,7 +24,7 @@ h1.title {
 
 .bg-main {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
-    url("/assets/imgs/night_bg.jpg")
+    url("https://images.pexels.com/photos/748626/pexels-photo-748626.jpeg?cs=srgb&dl=sea-landscape-nature-748626.jpg&fm=jpg")
     no-repeat fixed center /cover;
     height: 100vh;
 }
