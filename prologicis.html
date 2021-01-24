@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ProLogicis (Browser)</title>
+    <title>JS Client</title>
 </head>
 <style>
     table {
@@ -28,20 +28,20 @@
     }
 </style>
 <body>
-<script src="prologicis.js"></script>
+<script src="browser.js"></script>
 <div id="root">
     <h1>ProLogicis</h1>
     <p>
-        <a href="https://github.com/jaqxues/ProLogicis/">ProLogicis</a> running client-side in the
-        browser. This will generate a in either Latex format or the GraphVizDotFormat. The latter
-        can be tested on <a href="http://viz-js.com/">viz-js.com</a>.
+        Browser version of <a href="https://github.com/jaqxues/ProLogicis/">ProLogicis</a>. This
+        will generate a in either Latex format or the GraphVizDotFormat. The latter can be tested on
+        <a href="http://viz-js.com/">viz-js.com</a>.
     </p><br>
     <form id="form_formula">
         <label for="formula">
             Formula (Enter the Logical Sentences and separate them with ';' or a new line):
         </label><br><br>
         <textarea id="formula" name="formula" rows="7" cols="100"></textarea><br><br>
-        <input id="bruteforce" type="checkbox" name="bruteforce">
+        <input id="bruteforce" type="checkbox" name="bruteforce" checked>
         <label for="bruteforce">
             Use bruteforce method, with full recursion to find optimal way. This will take longer
             (perhaps too long since there are no possible optimizations)
