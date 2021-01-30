@@ -6,27 +6,66 @@
 </head>
 <style>
     table {
-        width:100%;
+        width: 100%;
     }
+
     table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
     }
+
     th, td {
         padding: 15px;
         text-align: left;
     }
+
     #t01 tr:nth-child(even) {
         background-color: #eee;
     }
+
     #t01 tr:nth-child(odd) {
         background-color: #fff;
     }
+
     #t01 th {
         background-color: black;
         color: white;
     }
 </style>
+
+<style>
+    svg {
+        border: 1px solid #999;
+        overflow: hidden;
+    }
+
+    .node {
+        white-space: nowrap;
+    }
+
+    .node rect,
+    .node circle,
+    .node ellipse {
+        stroke: #888;
+        fill: #fff;
+        stroke-width: 1.5px;
+    }
+
+    .cluster rect {
+        stroke: #333;
+        fill: #000;
+        fill-opacity: 0.1;
+        stroke-width: 1.5px;
+    }
+
+    .edgePath path.path {
+        marker-end: none;
+        stroke: #333;
+        stroke-width: 1.5px;
+        fill: none;
+    }
+</style>
+
 <body>
 <script src="prologicis.js"></script>
 <div id="root">
@@ -38,21 +77,41 @@
     </p><br>
     <form id="form_formula">
         <label for="formula">
-            Formula (Enter the Logical Sentences and separate them with ';' or a new line):
+            Formula (Enter the Logical Sentences and separate them with ';' or a new line. The last listed sentence will be used as conclusion):
         </label><br><br>
         <textarea id="formula" name="formula" rows="7" cols="100"></textarea><br><br>
         <input id="bruteforce" type="checkbox" name="bruteforce" checked>
         <label for="bruteforce">
             Use bruteforce method, with full recursion to find optimal way. This will take longer
             (perhaps too long since there are no possible optimizations)
+        </label><br>
+        <input id="visualize" type="checkbox" name="visualize" checked>
+        <label for="visualize">
+            Visualizing the Graph in the Browser (using DagreJs)
         </label><br><br>
+        <label for="output_type">Selected output format: </label>
+        <select id="output_type" name="output_type">
+            <option value="none">None (only visualization)</option>
+            <option value="latex">Latex</option>
+            <option value="graph">DOT Graph</option>
+            <option value="digraph">Directed DOT Graph</option>
+        </select><br><br>
         <input type="submit" value="Run Truth Tree">
-    </form><br><br>
-    <code id="tt_out">
-Input Example:<br><br>
-(A iif B) implies (not(C) or D)<br>
-A implies B<br><br>
+    </form>
+    <br><br>
+    <div id="viz-container">
+        <h3>Visualized Graph:</h3>
+    </div>
+    <h3>Formatted Text Output:</h3>
+    <code>
+        <pre id="tt_out" style="white-space: pre-wrap;">
+Input Example:
+
+(A iif B) implies (not(C) or D)
+A implies B
+
 (not(C implies B) or (A and C)) implies D
+        </pre>
     </code><br><br>
     <h2>Supported Operations for propositional logic</h2>
     <table id="t01">
@@ -88,5 +147,50 @@ A implies B<br><br>
         </tr>
     </table>
 </div>
+<script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+<script src="http://dagrejs.github.io/project/graphlib-dot/latest/graphlib-dot.min.js"></script>
+<script src="https://d3js.org/d3.v6.js"></script>
+<script>
+    const svg = d3.select("#viz-container")
+        .append("svg")
+        .call(d3.zoom()
+            .on('zoom', (event) => {
+                svg.attr('transform', event.transform);
+            }))
+        .append("g")
+
+    // Create and configure the renderer
+    const render = dagreD3.render();
+
+    function visualizeGraph(output) {
+        d3.select("#viz-container svg")
+            .attr("width", "100%")
+            .attr("height", 1200)
+        let g;
+        try {
+            g = graphlibDot.read(output);
+        } catch (e) {
+            throw e;
+        }
+
+        // Set margins, if not present
+        if (!g.graph().hasOwnProperty("marginx") &&
+            !g.graph().hasOwnProperty("marginy")) {
+            g.graph().marginx = 20;
+            g.graph().marginy = 20;
+        }
+
+        g.graph().transition = function (selection) {
+            return selection.transition().duration(500);
+        };
+
+        d3.select("svg g").call(render, g);
+    }
+    function hideVisualization() {
+        d3.select("#viz-container svg")
+        .attr("width", 100)
+        .attr("height", 100)
+    }
+</script>
 </body>
 </html>
